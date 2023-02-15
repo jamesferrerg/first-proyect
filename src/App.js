@@ -1,14 +1,26 @@
-import { ItemsGrid } from "./ItemsGrid";
+import { ItemsGrid } from "./components/ItemsGrid";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { ItemsDetails } from "./pages/ItemDetails";
+import { LandingPage } from "./pages/LandingPage";
 
 export function App() {
   return (
-    <div>
+    <Router>
       <header>
-        <h1>Movies</h1>
+        <Link to="/">
+          <h1>Movies</h1>
+        </Link>
       </header>
       <main>
-        <ItemsGrid />
+        <Switch>
+          <Route exact path="/items/:itemId">
+            <ItemsDetails />
+          </Route>
+          <Route path="/">
+            <LandingPage />
+          </Route>
+        </Switch>
       </main>
-    </div>
+    </Router>
   );
 }
