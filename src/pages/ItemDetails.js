@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { get } from "../utils/httpClient";
-import item from "./item.json";
 import styles from "./ItemDeteails.module.css";
 
 export function ItemsDetails() {
