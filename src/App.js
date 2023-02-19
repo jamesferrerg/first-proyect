@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { ItemsDetails } from "./pages/ItemDetails";
 import { LandingPage } from "./pages/LandingPage";
 //theme
@@ -17,17 +17,11 @@ export function App() {
         <Navbar />
       </header>
       <main>
-        <Switch>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/items/:itemId">
-            <ItemsDetails />
-          </Route>
-          <Route path="/">
-            <LandingPage />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/items/:itemId" element={<ItemsDetails />} />
+          <Route path="/movies" element={<LandingPage />} />
+        </Routes>
       </main>
     </Router>
   );
