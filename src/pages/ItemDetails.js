@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Spinner } from "../components/Spinner";
 import { get } from "../utils/httpClient";
 import styles from "./ItemDeteails.module.css";
 
@@ -8,11 +9,19 @@ export function ItemsDetails() {
   const { itemId } = useParams();
   const [item, setItems] = useState(null);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
+    setIsLoading(true);
     get("/movie/" + itemId).then(data => {
       setItems(data);
+      setIsLoading(false);
     })
   }, [itemId])
+
+  if (isLoading) {
+    return <Spinner />
+  }
 
   if (!item) {
     return null;
