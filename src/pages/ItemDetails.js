@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Spinner } from "../components/Spinner";
+import { getItemImg } from "../utils/getItemImg";
 import { get } from "../utils/httpClient";
 import styles from "./ItemDeteails.module.css";
 
@@ -27,7 +28,7 @@ export function ItemsDetails() {
     return null;
   }
 
-  const imageUrl = "https://image.tmdb.org/t/p/w500" + item.poster_path;
+  const imageUrl = getItemImg(item.poster_path, 500);
   return (
     <div className={styles.detailsContainer}>
       <img className={`${styles.col} ${styles.itemImage}`} src={imageUrl} alt={item.title} />

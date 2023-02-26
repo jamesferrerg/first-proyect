@@ -20,14 +20,13 @@ export function Search() {
           value={search ?? ""}
           autoFocus
           placeholder="Title"
+          aria-label="Search items"
           onChange={(evn) => {
             const value = evn.target.value;
-            setQuery({search: value});
+            setQuery({ search: value });
           }}
         />
-        <button className={styles.searchButton} type="submit">
-          <FaSearch size={20} />
-        </button>
+        <FaSearch size={20} className={styles.searchButton} />
       </div>
     </form>
   );

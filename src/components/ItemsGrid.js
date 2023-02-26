@@ -5,6 +5,7 @@ import styles from "./ItemsGrid.module.css";
 import { Spinner } from "./Spinner";
 import { useSearchParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { Empty } from "./Empty";
 
 export function ItemsGrid({ search }) {
   //let items = [];
@@ -30,6 +31,10 @@ export function ItemsGrid({ search }) {
     // la siguiente linea con el arreglo se evita los ciclos infinitos
     // el arreglo vacio me define que el efecto solo se ejecutara una sola vez
   }, [search, page]);
+
+  if (!isLoading && items.length === 0) {
+    return <Empty />
+  }
 
   return (
     // en la funcion next para ir pasando pagina a la siguiente puede realizarse con page + 1 
