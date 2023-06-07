@@ -19,4 +19,4 @@ RUN npm run build
 EXPOSE 3000
 
 # run your app
-CMD ['yarn', 'run', 'start']
+CMD ['npm', 'run', 'start']
