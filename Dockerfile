@@ -1,5 +1,5 @@
 # Using node:16-alpine base image
-FROM node:18.16-alpine 
+FROM node:alpine 
 
 # Set /app as the default work directory
 WORKDIR /app
@@ -19,4 +19,4 @@ RUN npm run build
 EXPOSE 3000
 
 # run your app
-CMD ['npm', 'run', 'start']
+CMD ["npm", "start"]
